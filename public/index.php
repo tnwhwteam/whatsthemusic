@@ -6,6 +6,9 @@ use Respect\Rest\Router;
 
 $router = new Router();
 
+$router->any('/quiz/*/question/*', '\WhatsTheMusic\Controller\QuestionController', array($template));
+$router->any('/quiz/*', '\WhatsTheMusic\Controller\QuizController', array($template));
+
 $router->get('/about', function() use ($template){
     return $template->twig->render('about.html');
 });
