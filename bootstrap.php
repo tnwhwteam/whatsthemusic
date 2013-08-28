@@ -8,8 +8,15 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 use Respect\Config\Container;
 
+// Project Constants
+define('PROJECT_ROOT', __DIR__);
+define('CONFIG_DIR', __DIR__ . '/config');
+define('WEB_DIR', __DIR__ . '/public');
+
+
+
 // Configuration file
-$c = new Container(__DIR__ . '/config/config.ini');
+$c = new Container(CONFIG_DIR . '/config.ini');
 
 // Set enviroment
 $isDevMode = ($c->env !== 'dev') ? false : true;
@@ -27,4 +34,4 @@ $platform = $em->getConnection()->getDatabasePlatform();
 $platform->registerDoctrineTypeMapping('enum', 'string');
 
 //Twig
-$template = new Container( __DIR__ . '/config/twig.ini');
+$template = new Container( CONFIG_DIR . '/twig.ini');
