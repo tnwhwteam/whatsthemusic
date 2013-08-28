@@ -6,6 +6,7 @@
 env             = dev
 timezone        = America/Sao_Paulo
 entities_path   = /src/RestfulBlog/Entity
+deezer_key      = your_deezer_key
 [database]
     driver      = pdo_mysql
     host        = localhost
