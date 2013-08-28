@@ -10,9 +10,13 @@ $router->get('/about', function() use ($template){
     return $template->twig->render('about.html');
 });
 
-$router->get('/', function() use ($template){
-    $var = $template->twig->render('index.html', array('name'=>'Respect'));
-    return $var;
-});
+$router->any('/', 'WhatsTheMusic/Route/Home');
+
+$router->always('Accept', array(
+    'text/html'        => new WhatsTheMusic\Route\Routine\Twig,
+    'text/plain'       => $json = new WhatsTheMusic\Route\Routine\Json,
+    'application/json' => $json,
+    'text/json'        => $json
+));
 
 print $router->run();
