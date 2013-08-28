@@ -1,4 +1,9 @@
 .page-title{}
+.authors{
+	width: 50%;
+	margin: 0 auto;
+}
 .author{
-	display: inline;
+	width: 180px;
+	float: left;
 }
