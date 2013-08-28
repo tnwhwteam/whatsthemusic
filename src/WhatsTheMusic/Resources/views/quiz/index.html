@@ -1,0 +1,11 @@
+{% extends 'base/layout.html' %}
+
+{% block content %}
+    <div class="jumbotron">
+      <div class="container">
+        <h1>{{ quiz.name }}</h1>
+        <p>{{ quiz.description }}</p>
+        <p><a class="btn btn-primary btn-lg">Start</a></p>
+      </div>
+    </div>
+{% endblock %}

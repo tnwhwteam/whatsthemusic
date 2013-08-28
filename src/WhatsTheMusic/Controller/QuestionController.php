@@ -2,12 +2,10 @@
 
 namespace WhatsTheMusic\Controller;
 
-use Respect\Rest\Routable;
-
-class QuestionController implements Routable
+class QuestionController extends AbstractController
 {
     public function get()
     {
-        return array('_view' => 'index.html');
+        return array('_view' => 'question/index.html');
     }
 }

@@ -2,9 +2,7 @@
 
 namespace WhatsTheMusic\Controller;
 
-use Respect\Rest\Routable;
-
-class AnswerController implements Routable
+class AnswerController extends AbstractController
 {
     public function get()
     {
