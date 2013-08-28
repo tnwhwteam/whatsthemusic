@@ -13,8 +13,6 @@ define('PROJECT_ROOT', __DIR__);
 define('CONFIG_DIR', __DIR__ . '/config');
 define('WEB_DIR', __DIR__ . '/public');
 
-
-
 // Configuration file
 $c = new Container(CONFIG_DIR . '/config.ini');
 

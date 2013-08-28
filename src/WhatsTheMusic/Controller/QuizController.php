@@ -2,22 +2,10 @@
 
 namespace WhatsTheMusic\Controller;
 
-use Respect\Rest\Routable;
-
-class QuizController implements Routable
+class QuizController extends AbstractController
 {
-    /**
-     * @var $template Twig_Environment
-     */
-    private $template;
-
-    public function __construct($twig)
-    {
-        $this->template = $twig;
-    }
-
     public function get()
     {
-        return $this->template->twig->render('about.html'); 
+        return array('_view' => 'about.html');
     }
 }

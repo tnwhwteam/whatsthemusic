@@ -6,14 +6,16 @@ use Respect\Rest\Router;
 
 $router = new Router();
 
-$router->any('/quiz/*/question/*', '\WhatsTheMusic\Controller\QuestionController', array($template));
-$router->any('/quiz/*', '\WhatsTheMusic\Controller\QuizController', array($template));
+$router->any('/quiz/*/question/*', '\WhatsTheMusic\Controller\QuestionController', array($em));
+$router->any('/quiz/*', '\WhatsTheMusic\Controller\QuizController', array($em));
 
 $router->get('/about', function() use ($template){
-    return $template->twig->render('about.html');
+    return array('_view' => 'about.html');
 });
 
-$router->any('/', 'WhatsTheMusic/Route/Home');
+$router->get('/', function() use ($template){
+    return array('_view' => 'index.html');
+});
 
 $router->always('Accept', array(
     'text/html'        => new WhatsTheMusic\Route\Routine\Twig,
