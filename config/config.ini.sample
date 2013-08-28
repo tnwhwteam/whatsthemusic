@@ -1,0 +1,15 @@
+;
+; Sample config file.
+; Copy or rename to config.ini
+;
+
+env             = dev
+timezone        = America/Sao_Paulo
+entities_path   = /src/RestfulBlog/Entity
+[database]
+    driver      = pdo_mysql
+    host        = localhost
+    dbname      = my_database
+    user        = database_user
+    password    = database_pass
+    path        = database_path (leave blank if you not using sqlite)
