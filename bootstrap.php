@@ -23,7 +23,7 @@ $isDevMode = ($c->env !== 'dev') ? false : true;
 
 if($isDevMode){
     ini_set('display_errors', 1);
-    error_reporting(E_ALL | E_STRICT);
+    error_reporting(-1);
 }
 
 date_default_timezone_get($c->timezone);
