@@ -34,4 +34,60 @@ class Answer
      protected $music;
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set text
+     *
+     * @param string $text
+     * @return Answer
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+    
+        return $this;
+    }
+
+    /**
+     * Get text
+     *
+     * @return string 
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * Set music
+     *
+     * @param integer $music
+     * @return Answer
+     */
+    public function setMusic($music)
+    {
+        $this->music = $music;
+    
+        return $this;
+    }
+
+    /**
+     * Get music
+     *
+     * @return integer 
+     */
+    public function getMusic()
+    {
+        return $this->music;
+    }
 }
