@@ -1,5 +1,14 @@
 {
     "require": {
-        "respect/rest": "0.5.1"
+        "respect/rest": "0.5.1",
+        "Respect/Validation": "dev-develop",
+        "Respect/config": "dev-master",
+        "Respect/test": "dev-master",
+        "doctrine/orm": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "WhatsTheMusic": "src\/"
+        }
     }
 }

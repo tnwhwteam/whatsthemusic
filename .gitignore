@@ -1,1 +1,5 @@
+# General Files
 /vendor/*
+
+# Project files
+config/config.ini
