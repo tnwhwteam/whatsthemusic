@@ -27,6 +27,18 @@ class Quiz
 	 */
 	protected $name;
 
+    /**
+     * @Column(name="description", type="string")
+     * @var $description string
+     */
+    protected $description;
+
+    /**
+     * @Column(name="maxPoints", type="integer", options={"default" = "0"})
+     * @var $maxPoints integer
+     */
+    protected $maxPoints = 0;
+
 	/**
      * @var $questions \Doctrine\Common\Collections\ArrayCollection
      *
@@ -105,5 +117,51 @@ class Quiz
     public function getQuestions()
     {
         return $this->questions;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Quiz
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set maxPoints
+     *
+     * @param integer $maxPoints
+     * @return Quiz
+     */
+    public function setMaxPoints($maxPoints)
+    {
+        $this->maxPoints = $maxPoints;
+    
+        return $this;
+    }
+
+    /**
+     * Get maxPoints
+     *
+     * @return integer 
+     */
+    public function getMaxPoints()
+    {
+        return $this->maxPoints;
     }
 }
