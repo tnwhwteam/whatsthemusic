@@ -21,18 +21,7 @@ if($isDevMode){
 
 date_default_timezone_get($c->timezone);
 
-$entitiesPath = array(__DIR__ . $c->entities_path);
-
-
-// the connection configuration
-$dbParams = $c->database;
-
-$config = Setup::createAnnotationMetadataConfiguration($entitiesPath, $isDevMode);
-// or if you prefer yaml or xml
-//$config = Setup::createXMLMetadataConfiguration($entitiesPath, $isDevMode);
-//$config = Setup::createYAMLMetadataConfiguration($entitiesPath, $isDevMode);
-
-$em = EntityManager::create($dbParams, $config);
+$em = $c->entityManager;
 
 $platform = $em->getConnection()->getDatabasePlatform();
 $platform->registerDoctrineTypeMapping('enum', 'string');
