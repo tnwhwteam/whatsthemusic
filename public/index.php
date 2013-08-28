@@ -6,6 +6,9 @@ use Respect\Rest\Router;
 
 $router = new Router();
 
-$router->get('/', function(){
-    return "index";
+$router->get('/', function() use ($template){
+    $var = $template->twig->render('index.html', array('name'=>'Respect'));
+    return $var;
 });
+
+print $router->run();

@@ -36,3 +36,6 @@ $em = EntityManager::create($dbParams, $config);
 
 $platform = $em->getConnection()->getDatabasePlatform();
 $platform->registerDoctrineTypeMapping('enum', 'string');
+
+//Twig
+$template = new Container( __DIR__ . '/config/twig.ini');
