@@ -3,14 +3,34 @@
 ; Copy or rename to config.ini
 ;
 
-env             = dev
-timezone        = America/Sao_Paulo
-entities_path   = /src/WhatsTheMusic/Entity
-deezer_key      = your_deezer_key
-[database]
+env             	= dev
+dev_mode			= true
+timezone        	= America/Sao_Paulo
+deezer_key      	= your_deezer_key
+entities_namespace 	= WhatsTheMusic\\Entity
+proxy_namespace		= WhatsTheMusic\\Proxy
+proxy_path			= /src/WhatsTheMusic/Proxy
+
+[entities_path]
+0 				= /src/WhatsTheMusic/Entity
+
+[connectionParams]
     driver      = pdo_mysql
     host        = localhost
     dbname      = my_database
     user        = database_user
     password    = database_pass
     path        = database_path (leave blank if you not using sqlite)
+
+[event Doctrine\Common\EventManager]
+
+[cache Doctrine\Common\Cache\ArrayCache]
+
+[config Doctrine\ORM\Tools\Setup]
+createAnnotationMetadataConfiguration[] = [[entities_path], [dev_mode], [proxy_path], [cache]]
+
+[dbal Doctrine\DBAL\DriverManager]
+getConnection[] = [[connectionParams], [config], [event]]
+
+[entityManager Doctrine\ORM\EntityManager]
+create[] = [[dbal], [config], [event]]
