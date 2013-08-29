@@ -1,4 +1,5 @@
 # General Files
+/cache/*
 /vendor/*
 *~
 
