@@ -12,4 +12,23 @@ use Doctrine\ORM\EntityRepository;
  */
 class AnswerRepository extends EntityRepository
 {
+    /**
+     * Get randomic answers from database excluding the right one
+     * 
+     * @param  integer $limit   The quantity limit
+     * @param  integer $exclude The id to exclude
+     * @return array
+     */
+    public function getRandomic($limit, $exclude)
+    {
+        $qb = $this->getEntityManager()->createQueryBuilder()
+            ->select('a')->from('WhatsTheMusic\Entity\Answer', 'a')
+            ->where('a.id != :exclude')
+            ->setParameter('exclude', $exclude)
+            ->setMaxResults($limit);
+
+        $answers = $qb->getQuery()->getArrayResult();
+
+        return $answers;
+    }
 }

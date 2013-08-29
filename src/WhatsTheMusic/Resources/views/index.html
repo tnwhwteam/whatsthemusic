@@ -7,15 +7,12 @@
             <h1>Do you really know music?</h1>
             <p>Test your knowledge about music with our quiz.</p>
             <p>
-                <a class="btn btn-primary btn-lg" href="/quiz">Play Now!</a>
+                <a class="btn btn-primary btn-lg" href="/quiz">See all</a>
             </p>
         </div>
     </div>
 </section>
 <section class="quizzes container">
-    {% if quizzes < 1 %}
-    {% set quizes = [1, 2, 3, 4, 5, 6] %}
-    {% endif %}
     <div class="row">
     {% for quiz in quizzes %}
         <div class="col-lg-4">
