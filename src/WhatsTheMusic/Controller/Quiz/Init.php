@@ -22,7 +22,6 @@ class Init extends AbstractController
         shuffle($questions);
 
         session_start();
-        unset($_SESSION);
 
         $_SESSION['quiz']['id'] = $quiz->getId();
         $_SESSION['quiz']['questions'] = $questions;

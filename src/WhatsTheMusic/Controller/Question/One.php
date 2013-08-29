@@ -15,9 +15,16 @@ class One extends AbstractController
             throw new \Exception("quiz not found", 404);
         }
 
+        $answers = $this->em->getRepository('WhatsTheMusic\Entity\Answer')
+            ->getRandomic(3, $question->getCorrectAnswer()->getId());
+        $correctAnswer = $question->getCorrectAnswer();
+        array_push($answers, $correctAnswer);
+        shuffle($answers);
+
         return array(
             '_view' => 'question/single.html',
             'question' => $question,
+            'answers' => $answers,
             'quiz' => $quiz
         );
     }

@@ -1,22 +1,20 @@
-{% extends 'base/layout.html' %}
-
-{% block content %}
-    
-        <div class="container">
-            <p class="text-muted text-right">Playing quiz: {{ quiz.name }} | Level: {{ quiz.dificulty }}</p>
-        </div>
-    </div>
+<div>
     <div class="container">
-        <div class="row">
-            <p>{{ question.text }}</p>
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <td><p class="text-muted"><strong>Number of musics</strong></p></td>
-                        <td><strong>{{ question.id }}</strong></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <p class="text-muted text-right">Playing quiz: {{ quiz.name }} | Level: {{ quiz.dificulty }}</p>
     </div>
-{% endblock %}
+</div>
+<div class="container">
+    <div class="row">
+        <p>{{ question.text }}</p>
+        <table class="table">
+            <tbody>
+                {% for answer in answers %}
+                    <tr class="answer">
+                        <td><p><strong>{{ loop.index }}</strong></p></td>
+                        <td>{{ answer.text }}</td>
+                    </tr>                    
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
