@@ -13,7 +13,7 @@ Quiz.prototype.getQuestion = function(questionId) {
 		$('.answer-click').click(function() {
 			if ($(this).hasClass('answer-click')) {
 				var answerId = $(this).data('answer-id');
-				$('.answer').removeClass('answer-click');
+				$('.answer').removeClass('answer-click').addClass('answer-selected');
 				quiz.validate(answerId);
 			};
 		});
@@ -32,6 +32,10 @@ Quiz.prototype.getNext = function() {
 	return this.currentQuestion;
 };
 
+Quiz.prototype.isLastQuestion = function() {
+	return (this.questions.length == 0);
+};
+
 Quiz.prototype.validate = function(answerId) {
 	var url = '/question/' + this.currentQuestion.id + '/validate/' + answerId;
 	$.get( url, function(data) {
@@ -40,10 +44,15 @@ Quiz.prototype.validate = function(answerId) {
 			Quiz.prototype.getDeezerTrack($(".msg-response > .alert").data('dizzer-id')), 
 			1000
 		);
-		var btn = $('<div class="pull-right col-md-offset-8"><a href="#" class="next btn btn-primary btn-lg">Next</a></div>');
+		if (! quiz.isLastQuestion() ) {
+			var btn = '<a href="/quiz/' + quiz.id + '/finish" class="next btn btn-primary btn-lg">Next</a>';
+		}else{
+			var btn = '<a href="#" class="finish btn btn-primary btn-lg">Finish</a>';
+		}
+		var btnContainer = $('<div class="pull-right col-md-offset-8">' + btn + '</div>');
 		setTimeout(
 			function(){
-				$("#answers").append(btn);
+				$("#answers").append(btnContainer);
 				$(".next").click(function() {
 					var id = quiz.getNext().id
 					data = quiz.getQuestion(id);
@@ -52,8 +61,6 @@ Quiz.prototype.validate = function(answerId) {
 			},
 			1500
 		);
-
-		
 	});
 };
 
