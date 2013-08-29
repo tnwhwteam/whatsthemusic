@@ -17,6 +17,7 @@ class Validate extends AbstractController
         $right = ($correctAnswer->getId() == $answer);
 
         if ($right === true) {
+            session_start();
             $_SESSION['quiz']['rightAnswers'] += 1;
         }
 

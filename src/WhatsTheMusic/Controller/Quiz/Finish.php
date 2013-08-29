@@ -11,7 +11,7 @@ class Finish extends AbstractController
 {
     public function get($quizId)
     {
-        $quiz = $this->em->getRepository('WhatsTheMusic\Entity\Question')->find($quizId);
+        $quiz = $this->em->getRepository('WhatsTheMusic\Entity\Quiz')->find($quizId);
 
         if (!$quiz) {
             throw new \Exception("quiz not found", 404);
