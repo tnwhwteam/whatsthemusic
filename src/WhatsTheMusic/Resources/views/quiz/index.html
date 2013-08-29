@@ -2,10 +2,32 @@
 
 {% block content %}
     <div class="jumbotron">
-      <div class="container">
-        <h1>{{ quiz.name }}</h1>
-        <p>{{ quiz.description }}</p>
-        <p><a class="btn btn-primary btn-lg">Start</a></p>
-      </div>
+        <div class="container">
+            <p><a class="btn btn-primary btn-lg pull-right">Start</a></p>
+        </div>
+        <div class="container">
+            <h1>{{ quiz.name }}</h1>
+            <p>{{ quiz.description }}</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td><p class="text-muted"><strong>Number of musics</strong></p></td>
+                        <td><strong>{{ quiz.questions|length }}</strong></td>
+                    </tr>
+                    <tr>
+                        <td><p class="text-muted"><strong>Dificulty</strong></p></td>
+                        <td><strong>{{ quiz.dificulty }}</strong></td>
+                    </tr>
+                    <tr>
+                        <td><p class="text-muted"><strong>High score</strong></p></td>
+                        <td><strong>{{ quiz.maxPoints }}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 {% endblock %}

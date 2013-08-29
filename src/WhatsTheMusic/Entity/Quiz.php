@@ -28,10 +28,16 @@ class Quiz
 	protected $name;
 
     /**
-     * @Column(name="description", type="string")
+     * @Column(name="description", type="text")
      * @var $description string
      */
     protected $description;
+
+    /**
+     * @Column(name="dificulty", type="string")
+     * @var $dificulty string
+     */
+    protected $dificulty;
 
     /**
      * @Column(name="maxPoints", type="integer", options={"default" = "0"})
@@ -45,6 +51,7 @@ class Quiz
      * @ManyToMany(targetEntity="Question")
      */
 	protected $questions;
+    
     /**
      * Constructor
      */
@@ -163,5 +170,28 @@ class Quiz
     public function getMaxPoints()
     {
         return $this->maxPoints;
+    }
+
+    /**
+     * Set dificulty
+     *
+     * @param string $dificulty
+     * @return Quiz
+     */
+    public function setDificulty($dificulty)
+    {
+        $this->dificulty = $dificulty;
+    
+        return $this;
+    }
+
+    /**
+     * Get dificulty
+     *
+     * @return string 
+     */
+    public function getDificulty()
+    {
+        return $this->dificulty;
     }
 }
