@@ -12,16 +12,16 @@
         </div>
     </div>
 </section>
-<section class="quizes container">
-    {% if quizes < 1 %}
+<section class="quizzes container">
+    {% if quizzes < 1 %}
     {% set quizes = [1, 2, 3, 4, 5, 6] %}
     {% endif %}
     <div class="row">
-    {% for quiz in quizes %}
+    {% for quiz in quizzes %}
         <div class="col-lg-4">
-            <h2>Quiz 1</h2>
-            <p class="description">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-            <p class="link"><a href="/quiz/1" class="btn btn-primary">Play now!</a></p>
+            <h2>{{ quiz.name }}</h2>
+            <p class="description">{{ quiz.description }}</p>
+            <p class="link"><a href="/quiz/{{ quiz.id }}" class="btn btn-primary">Play now!</a></p>
         </div>
     {% endfor %}
     </div>

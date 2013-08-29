@@ -14,9 +14,7 @@ $router->get('/about', function() use ($template){
     return array('_view' => 'about.html');
 });
 
-$router->get('/', function() use ($template){
-    return array('_view' => 'index.html');
-});
+$router->get('/', '\WhatsTheMusic\Controller\HomeController', array($em));
 
 $router->exceptionRoute('Exception', function (Exception $e) use ($template){
     return $template->twig->render(
