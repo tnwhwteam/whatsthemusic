@@ -28,8 +28,9 @@ class Question
 	protected $text;
 
 	/**
-	 * @Column(name="correct_answer", type="string")
 	 * @var integer $correctAnswer
+     *
+     * @OneToOne(targetEntity="Answer")
 	 */
 	protected $correctAnswer;
 
