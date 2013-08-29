@@ -12,7 +12,7 @@ $router->any('/quiz', '\WhatsTheMusic\Controller\Quiz\All', array($em));
 $router->any('/quiz/*/play', '\WhatsTheMusic\Controller\Quiz\Play', array($em));
 $router->any('/quiz/*/init', '\WhatsTheMusic\Controller\Quiz\Init', array($em));
 $router->any('/quiz/*', '\WhatsTheMusic\Controller\Quiz\One', array($em));
-$router->any('/question/*/validate/*', '\WhatsTheMusic\Controller\Question\One', array($em));
+$router->any('/question/*/validate/*', '\WhatsTheMusic\Controller\Question\Validate', array($em));
 
 $router->get('/about', function() use ($template){
     return array('_view' => 'about.html');

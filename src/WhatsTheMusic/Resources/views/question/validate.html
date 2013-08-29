@@ -1,0 +1,5 @@
+{% if isCorrect == true %}
+    <div class="alert alert-success" data-dizzer-id="{{ answer.music }}">Great, your answer is right! Listen full music above:</div>
+{% else %}
+    <div class="alert alert-danger" data-dizzer-id="{{ answer.music }}">Damn, your answer is wrong! The right one is:</div>
+{% endif %}

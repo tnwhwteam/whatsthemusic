@@ -1,9 +1,17 @@
 .page-title{}
+
 .authors{
 	width: 50%;
 	margin: 0 auto;
 }
+
 .author{
 	width: 180px;
 	float: left;
+}
+
+.playing-quiz {
+    height: 45px;
+    margin-top: 25px;
+    font-size: 12px;
 }

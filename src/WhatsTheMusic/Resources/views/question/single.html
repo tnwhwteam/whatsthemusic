@@ -1,20 +1,28 @@
-<div>
-    <div class="container">
-        <p class="text-muted text-right">Playing quiz: {{ quiz.name }} | Level: {{ quiz.dificulty }}</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Question</h1>
+        </div>
+        <div class="col-md-4 playing-quiz">
+            <p class="text-muted text-right">Playing quiz: <em>{{ quiz.name }}</em> | Level: <em>{{ quiz.dificulty }}</em></p>
+        </div>
     </div>
 </div>
 <div class="container">
     <div class="row">
-        <p>{{ question.text }}</p>
-        <table class="table">
-            <tbody>
-                {% for answer in answers %}
-                    <tr class="answer" data-answer-id="{{ answer.id }}">
-                        <td><p><strong>{{ loop.index }}</strong></p></td>
-                        <td>{{ answer.text }}</td>
-                    </tr>                    
-                {% endfor %}
-            </tbody>
-        </table>
+        <div class="col-md-8">
+            <p class="lead">{{ question.text }}</p>
+            <table class="table">
+                <tbody>
+                    {% for answer in answers %}
+                        <tr class="answer" data-answer-id="{{ answer.id }}">
+                            <td><p><strong>{{ loop.index }}</strong></p></td>
+                            <td>{{ answer.text }}</td>
+                        </tr>                    
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4 msg-response"></div>
     </div>
 </div>

@@ -25,9 +25,15 @@ class AnswerRepository extends EntityRepository
             ->select('a')->from('WhatsTheMusic\Entity\Answer', 'a')
             ->where('a.id != :exclude')
             ->setParameter('exclude', $exclude)
-            ->setMaxResults($limit);
+            ->setMaxResults(1000);
 
-        $answers = $qb->getQuery()->getArrayResult();
+        $allAnswers = $qb->getQuery()->getArrayResult();
+        shuffle($allAnswers);
+
+        $answers = array();
+        for ($i=0; $i < $limit ; $i++) { 
+            $answers[] = $allAnswers[$i];
+        }
 
         return $answers;
     }
