@@ -2,8 +2,8 @@
 
 {% block content %}
 <section>
-    <div class="jumbotron ">
-        <div class="container">
+    <div class="jumbotron background">
+        <div class="container transbox">
             <h1>Do you really know music?</h1>
             <p>Test your knowledge about music with our quiz.</p>
             <p>
@@ -15,7 +15,7 @@
 <section class="quizzes container">
     <div class="row">
     {% for quiz in quizzes %}
-        <div class="col-lg-4">
+        <div class="col-lg-4 quiz-block">
             <h2>{{ quiz.name }}</h2>
             <p class="description">{{ quiz.description }}</p>
             <p class="link"><a href="/quiz/{{ quiz.id }}" class="btn btn-primary">See more!</a></p>

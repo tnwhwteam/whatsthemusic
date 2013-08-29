@@ -1,17 +1,19 @@
-.page-title{}
-
-.authors{
-	width: 50%;
-	margin: 0 auto;
+.quiz-block:hover {
+    background-color: #CCC;
 }
 
-.author{
-	width: 180px;
-	float: left;
+.authors{
+    list-style: none;
+	width: 50%;
+	margin: 0 auto;
 }
 
 .playing-quiz {
     height: 45px;
     margin-top: 25px;
     font-size: 12px;
+}
+
+footer {
+    margin: 30px 0px 30px 0px;
 }
