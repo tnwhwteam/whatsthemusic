@@ -9,8 +9,7 @@ use \JSON_FORCE_OBJECT;
 */
 class Json
 {
-	
-	function invoke($data)
+	function __invoke($data)
 	{
 		if (!headers_sent()) {
 			header('Content-Type: application/json');

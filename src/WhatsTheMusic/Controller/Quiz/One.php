@@ -15,7 +15,7 @@ class One extends AbstractController
         }
 
         return array(
-            '_view' => 'quiz/index.html',
+            '_view' => 'quiz/single.html',
             'quiz' => $quiz
         );
     }
