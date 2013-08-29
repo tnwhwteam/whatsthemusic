@@ -9,6 +9,7 @@
 	{% for question in questions %}
     questions.push({ "id": "{{ question.id }}", "name": "{{ question.text }}" });
     {% endfor %}
+    var quiz = undefined;
 	</script>
     <script src="/js/quiz.js"></script>
 {% endblock %}

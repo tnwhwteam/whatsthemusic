@@ -9,6 +9,10 @@ Quiz.prototype.getQuestion = function(questionId) {
 	var response;
 	$.get( url, function(data) {
 		$(".quiz-play").html(data);
+		$('.answer').click(function() {
+			var answerId = $(this).data('answer-id');
+			quiz.validate(answerId);
+		});
 	});
 	return response;
 };
@@ -24,7 +28,7 @@ Quiz.prototype.getNext = function() {
 	return this.currentQuestion;
 };
 
-Quiz.prototype.validate = function(questionId, answerId) {
+Quiz.prototype.validate = function(answerId) {
 	var url = '/quiz/' + this.currentQuestion.id + '/validate/' + answerId;
 	$.get( url, function(data) {
 		$(".quiz-play").html(data);
@@ -32,11 +36,7 @@ Quiz.prototype.validate = function(questionId, answerId) {
 };
 
 $(document).ready(function(){
-	var quiz = new Quiz(quiz_id, questions);
+	quiz = new Quiz(quiz_id, questions);
 	var data = quiz.getQuestion(quiz.getNext().id);
 	quiz.showData(data, $(".quiz-play"));
-	$('.answer').click(function() {
-		var answerId = $(this).data('answerId');
-
-	});
 });

@@ -9,7 +9,7 @@
         <table class="table">
             <tbody>
                 {% for answer in answers %}
-                    <tr class="answer">
+                    <tr class="answer" data-answer-id="{{ answer.id }}">
                         <td><p><strong>{{ loop.index }}</strong></p></td>
                         <td>{{ answer.text }}</td>
                     </tr>                    
