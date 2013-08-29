@@ -1,8 +1,10 @@
 <?php
 
-namespace WhatsTheMusic\Controller;
+namespace WhatsTheMusic\Controller\Quiz;
 
-class QuizController extends AbstractController
+use WhatsTheMusic\Controller\AbstractController;
+
+class One extends AbstractController
 {
     public function get($id)
     {
