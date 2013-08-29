@@ -3,23 +3,22 @@
     <div class="quiz-play"></div>
 {% endblock %}
 {% block js %}
-    <script src="http://br-cdn-files.deezer.com/js/min/dz.js"></script>
     
-	<script type="text/javascript">
-	var quiz_id = {{ quiz }};
-	var questions = [];
-	{% for question in questions %}
+    <script type="text/javascript">
+    var quiz_id = {{ quiz }};
+    var questions = [];
+    {% for question in questions %}
     questions.push({ "id": "{{ question.id }}", "name": "{{ question.text }}" });
     {% endfor %}
     var quiz = undefined;
-	</script>
-    <div id="dz-root"></div>
+    </script>
+    <!--<div id="dz-root"></div>
     <script src="http://br-cdn-files.deezer.com/js/min/dz.js"></script>
     <script>
         DZ.init({
             appId  : '123683',
             channelUrl : 'http://http://whatsthemusic.tec4web.com.br/channel.html'
         });
-    </script>
+    </script>-->
     <script src="/js/quiz.js"></script>
 {% endblock %}

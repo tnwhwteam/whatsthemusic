@@ -32,15 +32,28 @@ Quiz.prototype.getNext = function() {
 	return this.currentQuestion;
 };
 
+Quiz.prototype.isLastQuestion = function() {
+	return (this.questions.length == 0);
+};
+
 Quiz.prototype.validate = function(answerId) {
 	var url = '/question/' + this.currentQuestion.id + '/validate/' + answerId;
 	$.get( url, function(data) {
 		$(".msg-response").html(data).show();
+		console.log(quiz.isLastQuestion());
+		if ( quiz.isLastQuestion() ) {
+			var btn = '<a href="/quiz/' + quiz.id + '/finish" class="finish btn btn-primary btn-lg">Finish</a>';
+		}else{
+			var btn = '<a href="#" class="next btn btn-primary btn-lg">Next</a>';
+		}
+		console.log(btn);
+		var btnContainer = $('<div class="pull-right col-md-offset-8">' + btn + '</div>');
+		console.log(btnContainer);
 		setTimeout(
 			Quiz.prototype.getDeezerTrack($(".msg-response > .alert").data('dizzer-id')), 
 			1000
 		);
-		var btn = $('<div class="pull-right col-md-offset-8"><a href="#" class="next btn btn-primary btn-lg">Next</a></div>');
+		var btn = $(btnContainer);
 		setTimeout(
 			function(){
 				$("#answers").append(btn);
