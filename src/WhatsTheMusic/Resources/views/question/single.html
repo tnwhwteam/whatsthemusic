@@ -10,12 +10,12 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8 answers" id="answers">
             <p class="lead">{{ question.text }}</p>
             <table class="table">
                 <tbody>
                     {% for answer in answers %}
-                        <tr class="answer" data-answer-id="{{ answer.id }}">
+                        <tr class="answer answer-click" data-answer-id="{{ answer.id }}">
                             <td><p><strong>{{ loop.index }}</strong></p></td>
                             <td>{{ answer.text }}</td>
                         </tr>                    

@@ -10,9 +10,12 @@ Quiz.prototype.getQuestion = function(questionId) {
 	var response;
 	$.get( url, function(data) {
 		$(".quiz-play").html(data);
-		$('.answer').click(function() {
-			var answerId = $(this).data('answer-id');
-			quiz.validate(answerId);
+		$('.answer-click').click(function() {
+			if ($(this).hasClass('answer-click')) {
+				var answerId = $(this).data('answer-id');
+				$('.answer').removeClass('answer-click');
+				quiz.validate(answerId);
+			};
 		});
 	});
 	return response;
@@ -37,6 +40,13 @@ Quiz.prototype.validate = function(answerId) {
 			Quiz.prototype.getDeezerTrack($(".msg-response > .alert").data('dizzer-id')), 
 			1000
 		);
+		$("#answers").append($('<a href="#" class="next">Next</a>'));
+
+		$(".next").click(function() {
+			var id = quiz.getNext().id
+			data = quiz.getQuestion(id);
+			quiz.showData(data, $(".quiz-play"));
+		});
 	});
 };
 

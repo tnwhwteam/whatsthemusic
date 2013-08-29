@@ -15,6 +15,10 @@ class One extends AbstractController
             throw new \Exception("quiz not found", 404);
         }
 
+        session_start();
+        $_SESSION['quiz']['olderQuestions'][] = array_shift($_SESSION['quiz']['questions']);
+        
+
         $answers = $this->em->getRepository('WhatsTheMusic\Entity\Answer')
             ->getRandomic(3, $question->getCorrectAnswer()->getId());
         $correctAnswer = $question->getCorrectAnswer();
