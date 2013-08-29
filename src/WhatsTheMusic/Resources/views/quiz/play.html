@@ -1,0 +1,14 @@
+{% extends 'base/layout.html' %}
+{% block content %}
+    <div class="quiz-play"></div>
+{% endblock %}
+{% block js %}
+	<script type="text/javascript">
+	var quiz_id = {{ quiz }};
+	var questions = [];
+	{% for question in questions %}
+    questions.push({ "id": "{{ question.id }}", "name": "{{ question.text }}" });
+    {% endfor %}
+	</script>
+    <script src="/js/quiz.js"></script>
+{% endblock %}
