@@ -40,8 +40,12 @@ Quiz.prototype.validate = function(answerId) {
 	var url = '/question/' + this.currentQuestion.id + '/validate/' + answerId;
 	$.get( url, function(data) {
 		$(".msg-response").html(data).show();
+		var deezerId = $(".msg-response > .alert").data('dizzer-id');
+		DZ.api('/track/' + deezerId	, function(response){
+			console.log(response);
+		});
 		setTimeout(
-			Quiz.prototype.getDeezerTrack($(".msg-response > .alert").data('dizzer-id')), 
+			Quiz.prototype.getDeezerTrack(deezerId), 
 			1000
 		);
 		if (! quiz.isLastQuestion() ) {
