@@ -40,13 +40,20 @@ Quiz.prototype.validate = function(answerId) {
 			Quiz.prototype.getDeezerTrack($(".msg-response > .alert").data('dizzer-id')), 
 			1000
 		);
-		$("#answers").append($('<a href="#" class="next">Next</a>'));
+		var btn = $('<div class="pull-right col-md-offset-8"><a href="#" class="next btn btn-primary btn-lg">Next</a></div>');
+		setTimeout(
+			function(){
+				$("#answers").append(btn);
+				$(".next").click(function() {
+					var id = quiz.getNext().id
+					data = quiz.getQuestion(id);
+					quiz.showData(data, $(".quiz-play"));
+				});
+			},
+			1500
+		);
 
-		$(".next").click(function() {
-			var id = quiz.getNext().id
-			data = quiz.getQuestion(id);
-			quiz.showData(data, $(".quiz-play"));
-		});
+		
 	});
 };
 
