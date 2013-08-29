@@ -28,6 +28,7 @@ class Play extends AbstractController
 
         $_SESSION['quiz']['id'] = $quiz->getId();
         $_SESSION['quiz']['questions'] = $questions;
+        $_SESSION['quiz']['rightAnswers'] = 0;
 
         return array(
             '_view' => 'quiz/play.html', 

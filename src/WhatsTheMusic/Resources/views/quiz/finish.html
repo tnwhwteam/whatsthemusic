@@ -1,0 +1,30 @@
+{% extends 'base/layout.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>You finished!</h1>
+        </div>
+    </div>
+    <div class="row">
+        {% if isHighest == true %}
+            <div class="col-md-8">
+                <p class="lead"><strong>Uou!</strong> you reached the highest score in this quiz, let us know who you are by putting your name in the form above. If you liked this quiz listen to his musics above and keep playing!</p>
+                <form role="form"action="/quiz/{{ quizId }}/highscore" method="put">
+                    <div class="form-group">
+                        <label for="inputName">Who are you?</label>
+                        <input name="name" type="text" class="form-control" id="inputName" placeholder="Enter your name">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+        {% else %}
+            <div class="col-md-8">
+                <p class="lead">Unfortunately did not reached the highest score in this quiz, you can now try to listen and memorize the playlist to try again!</p>
+            </div>
+        {% endif %}
+        <iframe scrolling="no" frameborder="0" allowTransparency="true" src="http://www.deezer.com/br/plugins/player?autoplay=false&playlist=true&width=360&height=450&cover=true&type=tracks&id={{ playlist }}&title=&format=vertical&app_id=123683" width="360" height="450"></iframe>
+    </div>
+</div>
+{% endblock %}
