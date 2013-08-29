@@ -45,6 +45,12 @@ class Quiz
      */
     protected $maxPoints = 0;
 
+    /**
+     * @Column(name="maxPointsBy", type="text")
+     * @var $maxPointsBy string
+     */
+    protected $maxPointsBy;
+
 	/**
      * @var $questions \Doctrine\Common\Collections\ArrayCollection
      *
@@ -193,5 +199,28 @@ class Quiz
     public function getDificulty()
     {
         return $this->dificulty;
+    }
+
+    /**
+     * Set maxPointsBy
+     *
+     * @param string $maxPointsBy
+     * @return Quiz
+     */
+    public function setMaxPointsBy($maxPointsBy)
+    {
+        $this->maxPointsBy = $maxPointsBy;
+    
+        return $this;
+    }
+
+    /**
+     * Get maxPointsBy
+     *
+     * @return string 
+     */
+    public function getMaxPointsBy()
+    {
+        return $this->maxPointsBy;
     }
 }

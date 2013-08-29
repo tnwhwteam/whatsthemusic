@@ -11,7 +11,7 @@
         {% if isHighest == true %}
             <div class="col-md-8">
                 <p class="lead"><strong>Uou!</strong> you reached the highest score in this quiz, let us know who you are by putting your name in the form above. If you liked this quiz listen to his musics above and keep playing!</p>
-                <form role="form"action="/quiz/{{ quizId }}/highscore" method="put">
+                <form role="form" action="/quiz/{{ quizId }}/highscore" method="post">
                     <div class="form-group">
                         <label for="inputName">Who are you?</label>
                         <input name="name" type="text" class="form-control" id="inputName" placeholder="Enter your name">

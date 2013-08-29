@@ -24,7 +24,7 @@
                     </tr>
                     <tr>
                         <td><p class="text-muted"><strong>High score</strong></p></td>
-                        <td><strong>{{ quiz.maxPoints }}</strong></td>
+                        <td><strong>{{ quiz.maxPoints }}</strong> <em>{{ quiz.maxPointsBy|default('') }}</em></td>
                     </tr>
                 </tbody>
             </table>
