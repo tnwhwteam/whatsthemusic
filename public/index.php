@@ -7,12 +7,12 @@ use Respect\Rest\Router;
 $router = new Router();
 $router->isAutoDispatched = false;
 
-$router->any('/quiz', '\WhatsTheMusic\Controller\Quiz\All', array($em));
 $router->any('/quiz/*/question/*', '\WhatsTheMusic\Controller\Question\One', array($em));
 $router->post('/quiz/*/highscore', '\WhatsTheMusic\Controller\Quiz\Highscore', array($em));
 $router->any('/quiz/*/play', '\WhatsTheMusic\Controller\Quiz\Play', array($em));
 $router->any('/quiz/*/finish', '\WhatsTheMusic\Controller\Quiz\Finish', array($em));
 $router->any('/quiz/*', '\WhatsTheMusic\Controller\Quiz\One', array($em));
+$router->any('/quiz', '\WhatsTheMusic\Controller\Quiz\All', array($em));
 $router->any('/question/*/validate/*', '\WhatsTheMusic\Controller\Question\Validate', array($em));
 
 $router->get('/about', function() use ($template){
